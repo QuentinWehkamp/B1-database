@@ -1,0 +1,65 @@
+--Onderdeel 1:
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `abon_basis` (
+  `Abonnr` int(11) NOT NULL,
+  `plaats` text NOT NULL,
+  `Naam` text NOT NULL,
+  `Tijdschrift` text NOT NULL,
+  `Uitgever` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `abon_basis` (`Abonnr`, `plaats`, `Naam`, `Tijdschrift`, `Uitgever`) VALUES
+(1, 'Gouda', 'HJ Nootenboom', 'Autoweek', 'Stam'),
+(2, 'Gouda', 'HJ Nootenboom', 'Computable', 'VNU'),
+(3, 'Emmen', 'B Jansen', 'Margriet', 'VDP'),
+(4, 'Assen', 'B Jansma', 'Autoweek', 'Stam'),
+(5, 'Zeijen', 'S Peuskens', 'Computable', 'VNU');
+
+ALTER TABLE `abon_basis`
+  ADD PRIMARY KEY (`Abonnr`);
+
+
+ALTER TABLE `abon_basis`
+  MODIFY `Abonnr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
+--Onderdeel 2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `abon_2` (
+  `Abonnr` int(11) NOT NULL,
+  `plaats` text NOT NULL,
+  `Voorletters` text NOT NULL,
+  `Naam` text NOT NULL,
+  `Tijdschrift` text NOT NULL,
+  `Uitgever` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `abon_2` (`Abonnr`, `plaats`, `Voorletters`, `Naam`, `Tijdschrift`, `Uitgever`) VALUES
+(1, 'Gouda', 'HJ', 'Nootenboom', 'Autoweek', 'Stam'),
+(2, 'Gouda', 'HJ', 'Nootenboom', 'Computable', 'VNU'),
+(3, 'Emmen', 'B', 'Jansen', 'Margriet', 'VDP'),
+(4, 'Assen', 'B', 'Jansma', 'Autoweek', 'Stam'),
+(5, 'Zeijen', 'S', 'Peuskens', 'Computable', 'VNU'),
+(6, 'Emmen', 'KJ', 'Han', 'Donald Duck', 'Sanoma'),
+(7, 'Klazienaveen', 'Q', 'Wehkamp', 'Autoweek', 'Stam');
+
+ALTER TABLE `abon_2`
+  ADD PRIMARY KEY (`Abonnr`);
+
+ALTER TABLE `abon_2`
+  MODIFY `Abonnr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+
+--Onderdeel 3
+SELECT * FROM `abon_2` WHERE `plaats` = 'emmen'
+SELECT * FROM `abon_2` WHERE `Abonnr`> 2
